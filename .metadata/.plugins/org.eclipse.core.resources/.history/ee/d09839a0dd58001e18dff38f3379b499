@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>이미지 모음</h1>
+<p id="title">고양이</p>
+
+<h1><a href="#title"> 사진 > 고양이 </a></h1>
+</body>
+</html>
