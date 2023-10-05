@@ -45,6 +45,33 @@
     console.log(txt.replace('Hong', 'Lee'));
     console.log(txt.replace(/[0-9]/, 'Lee'));
 
+    //6. 공백 제거
+    txt = '     하나         둘      셋'  ;
+    console.log('@' + txt.trim() + '@');
+    console.log('@' + txt.trimLeft() + '@');
+    console.log('@' + txt.trimStart() + '@');
+
+    //7. 분할
+    txt = '홍길동, 아무개, 하하하, 호호호, 후후후';
+    console.log(txt.split(','));
+
+    //8. 검색
+    txt = '홍길동';
+    console.log(txt.startsWith('홍'));
+    console.log(txt.endsWith('동'));
+
+    //9.
+    txt ='1';
+    console.log(txt.padStart(3, '0'));
+    console.log(txt.padEnd(3, 'A'));
+
+    console.log(txt.repeat(3,txt));
+
+    var temp = '';
+    for(var i=0; i<3; i++){
+        temp += txt;
+    }
+
 </script>
 </body>
 </html>
