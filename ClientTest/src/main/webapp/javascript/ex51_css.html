@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .one{}
-        .two{}
-        .three{}
+        #box1 {
+            border: 1px solid black;
+            width: 200px; height: 200px;
+        }
+        .one { font-size: 3rem; }
+        .two { color:cornflowerblue; }
+        .three { text-decoration: underline; }
+
+        body{
+            margin-bottom: 300px;
+        }
+
     </style>
+    <script src="https://kit.fontawesome.com/7c6aa8d8ae.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- ex51_css.html -->
@@ -17,6 +27,27 @@
     <input type="button" value="버튼" id="btn1">
     <hr>
     <div id="box1">상자</div>
+
+    <hr>
+
+    <h1>텍스트</h1>
+
+    <div class="tool">
+        <button type="button" id="btn2"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button type="button" id="btn3"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <p id="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam iusto esse perspiciatis maiores quas facere magnam suscipit cupiditate vel, enim, dolores explicabo ab possimus aliquid eveniet, modi cumque cum reprehenderit!
+    Quae iure doloremque placeat expedita, eaque fuga necessitatibus ducimus distinctio velit adipisci incidunt maxime deleniti nostrum laudantium aperiam tempora porro rem voluptas quam ut cupiditate quidem officiis suscipit odio! Deleniti.
+    Odio qui ratione enim, quas, quibusdam necessitatibus impedit assumenda rerum similique ab repudiandae! Quisquam vitae ipsa voluptatum natus. Saepe reiciendis cumque corporis perferendis accusamus ab quam iusto impedit autem vel.
+    Fuga culpa ea adipisci aliquid enim numquam, quidem, optio, rerum temporibus ad quo quaerat officia magnam est. Velit quisquam, vero placeat culpa, et nisi ea, perspiciatis cupiditate necessitatibus enim maxime.
+    Eaque, voluptate sed. Nesciunt nemo quo voluptas voluptatem doloribus omnis facilis, nihil laboriosam fuga vel aperiam non sapiente, amet eius ex dolorem reiciendis quaerat rem a earum vero eligendi magnam!
+    Inventore, nobis natus! Vitae, fugit exercitationem quis numquam animi non optio pariatur iste iusto voluptas architecto ad recusandae eum eos rem voluptatem eveniet autem, quaerat fuga id delectus neque? Aperiam.
+    Commodi error corrupti eius odio neque, ea natus accusantium, vel pariatur officiis quod distinctio aspernatur facilis repellendus. Consectetur dicta quis totam cum delectus fugit quia. Accusamus adipisci numquam fugit repudiandae.
+    Libero sit voluptates eos ea reiciendis rerum perferendis nisi nesciunt officia consequatur! Exercitationem alias deserunt quibusdam doloremque dolorem enim in facilis, adipisci quod provident libero soluta incidunt veniam aspernatur similique.
+    Laborum praesentium esse unde, qui sunt reprehenderit id nihil aliquid fugiat quis magnam quasi ad! Nulla porro est quibusdam odit omnis. Fuga temporibus earum mollitia veniam atque corrupti commodi dolore.
+    Repellendus architecto quo voluptatum exercitationem in necessitatibus reprehenderit sit, laborum suscipit atque, odio perspiciatis, sunt ullam molestias odit. Tempore modi ex nisi perspiciatis adipisci praesentium saepe corrupti aliquid autem veniam.
+    </p>
 
     <script>
         const btn1 = document.getElementById('btn1');
@@ -42,10 +73,59 @@
 
             //style 프로퍼티 > 접근 가능 속성 > 프로퍼티(배열) 제공
             // box1.style = 'color = blue';
-            box1.style.color = 'blue';
-            box1.style.fontSize = '2rem';
+            // box1.style.color = 'blue';
+            // box1.style.fontSize = '2rem';
+            // box1.style.backgroundColor = 'gold';
+
+            // box1.style['color'] = 'gold';
+            // box1.style['font-size'] = '2rem';
+            // box1.style['background-image'] = 'url(../asset/images/catty01.png)';
+
+            //상자의 현재 너비?
+            // alert(box1.style.width); //null값을 띄우는 이유 -> box1의 style 속성이 없기떄문이다 head부분의 style 태그는 X
+            // box1.style.width = '300px';
+
+            //버튼 클릭 > 상자의 너비 > 현재 너비 + 50px
+            // box1.style.width = parseInt(box1.style.width) + 50 + 'px';
+
+            //CSS 적용 방식 무관 > 현재 객체에 적용된 모든 CSS 속성을 반환
+            const list = window.getComputedStyle(box1);
+
+            alert(box1.style.width);
+            alert(list.width);
+            alert(list.getPropertyValue('width'));
 
         }); //btn1.onclick
+
+
+
+        const btn2 = document.getElementById('btn2');
+        const btn3 = document.getElementById('btn3');
+        const content =document.getElementById('content');
+
+        let size = 16;
+
+        btn2.addEventListener('click', function(){
+            // size--;
+            // content.style.fontSize = size+ 'px';
+
+            //<p class ="one two">
+            // content.className ='one two';
+
+            content.classList.add('one');
+            content.classList.add('two');
+        });
+
+        btn3.addEventListener('click', function(){
+            // size++;
+            // content.style.fontSize = size+ 'px';
+
+            //<p class ="one two three">
+            // content.className += ' three'; //띄어쓰기해야함
+
+            content.classList.add('three');
+            content.classList.remove('two');
+        });
     </script>
 </body>
 </html>
