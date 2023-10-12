@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{}
+        .two{}
+        .three{}
+    </style>
+</head>
+<body>
+    <!-- ex51_css.html -->
+    <h1>CSS</h1>
+
+    <input type="button" value="버튼" id="btn1">
+    <hr>
+    <div id="box1">상자</div>
+
+    <script>
+        const btn1 = document.getElementById('btn1');
+        const box1 = document.getElementById('box1');
+
+        btn1.addEventListener('click', function(){
+            /*
+                JavaScript > CSS조작
+                1. 모든 태그 > style 속성 제공(인라인 스타일 시트) > 자바스크립트 style 프로퍼티 제공
+                2. class 조작
+                    - className 프로퍼티
+                    - classList 프로퍼티
+
+            */
+
+            // btn1.value = 'Button';
+            // box1.style = 'color:blue'; //BOM
+            // box1.setAttribute('style', 'color:gold'); //DOM
+
+            //조직적인 관리 어려움
+            // box1.innerHTML ='<input>';
+            // box1.style = 'color: blue; font-size: 2rem';
+
+            //style 프로퍼티 > 접근 가능 속성 > 프로퍼티(배열) 제공
+            // box1.style = 'color = blue';
+            box1.style.color = 'blue';
+            box1.style.fontSize = '2rem';
+
+        }); //btn1.onclick
+    </script>
+</body>
+</html>
